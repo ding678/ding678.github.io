@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.box{width: 300px;height: 40px;-border:medium dotted #dfdfdf;float: left;margin:10px;position:relative;overflow: hidden;}
+			div div:nth-child(1){position:absolute;top:0;right:0;width:200%;height:100%;background: -webkit-repeating-linear-gradient(-30deg,red 0,red 10px,yellow 10px,yellow 20px);animation:3s test linear infinite;}
+			@keyframes test{
+				to{right:-100%;}  /*定位的left和right可以调整进度条运动方向*/
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div id="box"></div>
+		</div>
+		颜色1 <input type="color" value="#efefef"> <!-- value只能写十六进制颜色吗 -->
+		颜色2 <input type="color" value="#ff0000">
+		<script>
+		var oBox=document.getElementById('box');
+		var c1=document.getElementsByTagName('input')[0];
+		var c2=document.getElementsByTagName('input')[1];
+		c1.onchange=function(){
+			oBox.style.background='-webkit-repeating-linear-gradient(-30deg,'+c1.value+' 0,'+c1.value+' 10px,'+c2.value+' 10px,'+c2.value+' 20px)'
+		}
+		c2.onchange=function(){
+			oBox.style.background='-webkit-repeating-linear-gradient(-30deg,'+c1.value+' 0,'+c1.value+' 10px,'+c2.value+' 10px,'+c2.value+' 20px)'
+		}
+		</script>
+	</body>
+</html>

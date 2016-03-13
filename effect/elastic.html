@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>floatAdv</title>
+	<style>
+		.ball{position:absolute;left:150px;bottom:2px;width:150px;height:150px;border-radius: 50%;box-shadow: inset 8px 8px 16px #dedede,8px 8px 12px #666;cursor:move;overflow: hidden;}
+		.ball span{position:absolute;left:0;bottom:0;border-radius:50%;width:100%;height:100%;font:20px/150px 'Microsoft YaHei';text-align: center;background:rgb(128,128,255);opacity: 0;transition:.5s all;}
+		.ball:hover span{opacity:1;transform:rotate(360deg);}
+	</style>
+</head>
+<body>
+	<div class="ball" id="ball">
+		<span>
+			拖 拽 它
+		</span>
+	</div>
+	<script>
+	var oBox=document.getElementById('ball');
+	var iSpeedX=0;
+	var iSpeedY=0;
+	var lastX=0;
+	var lastY=0;
+	var timer=null;
+	oBox.onmousedown=function(ev){
+		var oEvent=ev||event;
+		var disX=oEvent.clientX-oBox.offsetLeft;
+		var disY=oEvent.clientY-oBox.offsetTop;
+		clearInterval(timer);
+		document.onmousemove=function(ev){
+			var oEvent=ev||event;
+			oBox.style.left=oEvent.clientX-disX+'px';
+			oBox.style.top=oEvent.clientY-disY+'px';
+			iSpeedX=oEvent.clientX-lastX;
+			iSpeedY=oEvent.clientY-lastY;
+			lastX=oEvent.clientX;
+			lastY=oEvent.clientY;
+		};
+		document.onmouseup=function(){
+			document.onmousemove=null;
+			document.onmouseup=null;
+			tick();
+			oBox.releaseCapture && oBox.releaseCapture();
+		};
+		return false;
+		oBox.setCapture && oBox.setCapture();
+	};
+
+	function tick(){
+		timer=setInterval(function(){
+			iSpeedY+=3;
+			var l=oBox.offsetLeft+iSpeedX;
+			var t=oBox.offsetTop+iSpeedY;
+			if(t>=document.documentElement.clientHeight-oBox.offsetHeight){
+				t=document.documentElement.clientHeight-oBox.offsetHeight;
+				iSpeedY*=-0.8;
+				iSpeedX*=0.8;
+			}
+			if(t<=0){
+				t=0;
+				iSpeedY*=-0.8;
+				iSpeedX*=0.8;
+			}
+			if(l>=document.documentElement.clientWidth-oBox.offsetWidth){
+				l=document.documentElement.clientWidth-oBox.offsetWidth;
+				iSpeedY*=0.8;
+				iSpeedX*=-0.8;
+			}
+			if(l<=0){
+				l=0;
+				iSpeedY*=0.8;
+				iSpeedX*=-0.8;
+			}
+			oBox.style.left=l+'px';
+			oBox.style.top=t+'px';
+			if(Math.abs(iSpeedX)<1)iSpeedX=0;
+			if(Math.abs(iSpeedY)<1)iSpeedY=0;
+			if(iSpeedX==0 && iSpeedY==0 && t==document.documentElement.clientHeight-oBox.offsetHeight){
+				clearInterval(timer);
+			}
+		},30);
+	}
+
+	</script>
+</body>
+</html>

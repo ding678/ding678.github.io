@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+	*{padding:0;margin:0;}
+	.box div{width:150px;height:150px;background:rgb(239,86,109);float:left;margin:10px;}
+	.box{width:510px;height:510px;margin:50px auto;}
+	.box:after{display:block;content:'';clear:both;}
+	input{position:absolute;top:200px;left:200px;width:100px;height: 50px;font:bold 20px/50px 'Microsoft YaHei';border-radius:4px;color:#333;text-shadow:0 2px 2px blue;box-shadow:4px 6px 6px #888,inset 0 0 6px blue;outline: none;border:none; }
+	input:active{top:204px;box-shadow:2px 2px 2px #888,inset 0 0 12px blue;}
+</style>
+<script>
+	window.onload=function(){
+		var oBtn=document.getElementById('btn');
+		var aDiv=document.getElementById('box').children;
+		var s=[];
+		for(var i=0;i<aDiv.length;i++){
+			var left=aDiv[i].offsetLeft;
+			var top=aDiv[i].offsetTop;
+			s.push({
+				left:left,
+				top:top	
+			});
+			aDiv[i].style.left=left+'px';
+			aDiv[i].style.top=top+'px';
+		}
+		for(var i=0;i<aDiv.length;i++){
+			aDiv[i].style.position='absolute';
+			aDiv[i].style.margin=0;
+		}
+		oBtn.onclick=function(){
+			var n=0;
+			var timer=setInterval(function(){
+				(function(index){
+					move(aDiv[n],{width:0,height:0,left:0,top:0},{complete:function(){
+						if(index==aDiv.length-1){
+							for(var i=0;i<aDiv.length;i++){
+								aDiv[i].style.background='blue';	
+							}
+							var timer=setInterval(function(){
+							move(aDiv[index],{width:150,height:150,left:s[index].left,top:s[index].top});
+							aDiv[index].style.background='rgb('+rnd(0,256)+','+rnd(0,256)+','+rnd(0,256)+')';
+							index--;
+							if(index==-1){
+								clearInterval(timer);
+							}	
+						},300);
+						}
+					}});	
+				})(n);
+				n++;
+				if(n==aDiv.length){
+					clearInterval(timer);	
+				}
+			},300);	
+		};
+		function move(obj,json,options){
+			var options=options||{};
+			var start={};
+			var dis={};
+			for(var name in json){
+				start[name]=parseFloat(getStyle(obj,name));
+				dis[name]=json[name]-start[name];
+			}
+			var count=Math.floor((options.duration||1000)/30);
+			var n=0;
+			clearInterval(obj.timer);
+			obj.timer=setInterval(function(){
+				n++;
+				for(var name in json){
+					var cur=start[name]+dis[name]*n/count;
+					if(name=='opacity'){
+						obj.style[name]=cur;	
+					}else{
+						obj.style[name]=cur+'px';	
+					}
+				}
+				if(n==count){
+					clearInterval(obj.timer);
+					options.complete&&options.complete();
+				}	
+			},30);
+			function getStyle(obj,sName){
+				return (obj.currentStyle||getComputedStyle(obj,false))[sName];
+			}
+		}
+		function rnd(n,m){
+			return Math.floor(Math.random()*(m-n)+n)
+		}
+	};
+</script>
+</head>
+
+<body>
+	<input type="button" value="点击" id="btn"/>
+	<div class="box" id="box">
+		<div></div><div></div>
+<div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+	</div>
+</body>
+</html>

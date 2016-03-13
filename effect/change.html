@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+	div{width:700px;height:500px;margin:100px auto;position:relative;}
+	span{position:absolute;top:0;left:0;background:url(../images/0.jpg) no-repeat;}
+	input{position:absolute;top:100px;left:100px;}
+</style>
+<script src="../js/move.js"></script>
+<script>
+	window.onload=function(){
+		var oDiv=document.getElementById('box');
+		var row=4;
+		var col=7;
+		var width=700/col;
+		var height=500/row;
+		var aSpan=[];
+		for(var r=0;r<row;r++){
+			for(var c=0;c<col;c++){
+				var oSpan=document.createElement('span');
+				oSpan.style.width=width+'px';
+				oSpan.style.height=height+'px';
+				var top=height*r;
+				var left=width*c;
+				oSpan.style.top=top+'px';
+				oSpan.style.left=left+'px';
+				oSpan.style.backgroundPosition=-left+'px -'+top+'px';
+				oDiv.appendChild(oSpan);
+				aSpan.push(oSpan);
+			}
+		}
+		var oBtn=document.getElementById('btn');
+		var oPic=document.getElementById('pic');
+		
+		var now=0;
+		oBtn.onclick=function(){
+			now++;
+			for(var i=0;i<aSpan.length;i++){
+				aSpan[i].style.opacity=0;
+				aSpan[i].style.backgroundImage='url(../images/'+now%3+'.jpg)';
+			}
+			var n=0;
+		var	timer=setInterval(function(){
+				(function(index){
+					move(aSpan[n],{opacity:1},{duration:500,complete:function(){
+						if(index==aSpan.length-1){
+							oPic.src='../images/'+now%3+'.jpg';
+						}	
+					}})
+				})(n)
+				n++;
+				if(n==aSpan.length){
+					clearInterval(timer);
+				}		
+			},300);
+			
+		};
+	};
+</script>
+</head>
+
+<body>
+	<input type="button" value="点击" id="btn"/>
+	<div id="box">
+		<img src="../images/0.jpg"  id="pic"/>
+	</div>
+</body>
+</html>

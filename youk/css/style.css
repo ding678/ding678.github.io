@@ -1,0 +1,199 @@
+@charset "utf-8";
+/* CSS Document */
+/*优酷音乐页面样式*/
+
+.container{width:970px;margin:0 auto;}
+/*头部样式开始*/
+.header{margin-bottom: 10px;}
+h1{background: url(../img/youkbgimg.png);width:125px;height: 27px;text-indent: -999em;margin:13px 12px 0 10px;}
+h1 a{display: block;width: 100%;height: 100%;}
+.top_nav{padding:10px 0 16px;background:#fff;width: 970px;}
+.top_nav li{font:14px '微软雅黑';}
+.top_nav>li a:hover,.channel dl a:hover{color: #2887db;}
+.index{margin-right: 58px;margin-top: 14px;}
+.index li{margin:0 12px 0 10px;float: left;font-size: 14px;}
+.channel{position:absolute;top:19px;left:-20px;width:300px;padding:10px 20px;box-shadow: 2px 2px 6px #ccc;background:#fff;z-index: 50;display: none;}
+.channel dt,.channel dd{float: left;padding:0 10px;}
+.channel dl a{color: #666;display: block;line-height: 30px;}
+.index .icon1{position:relative;}
+.index .icon1>a{background: url(../img/youkbgimg.png) no-repeat 0 -29px;padding-left: 25px;}
+.top_nav .search{position: relative;}
+.search ul{position: absolute;top:40px;left:0;width: 230px;background:#fff;z-index: 50;border:2px solid #2989dd;border-top:none;padding:10px 0;display: none;}
+.search li{padding-left:10px;}
+.search li a{display:block;line-height: 30px;}
+.search li span{color: orange;}
+.top_nav .txt{width: 224px;height: 36px;border:none;border:2px solid #a0a0a0;border-right:none;outline: none;padding-left:6px;}
+.top_nav .btn{width: 90px;height:40px;background: #2989dd;line-height:40px;font:16px '微软雅黑';background: url(../img/youkbgimg.png)-71px -20px #2c8ce0;border:1px solid #1a67cb;padding-left: 33px;color: #fff;outline: none;cursor:pointer;}
+.top_nav_list{margin-top: 13px;}
+.top_nav_list li{float: left;margin-left:20px;}
+.top_nav_list li a,.top_nav li a{color: #555;}
+.top_nav_list .first{background: url(../img/youkbgimg.png) -211px -30px;padding-left: 19px;height:19px;position: relative;top:2px;}
+.top_nav_list .first i{background: url(../img/youkbgimg.png) -311px -79px;width: 9px;height: 16px;margin-left: 5px;}
+.top_nav_list .last{background: url(../img/youkbgimg.png) no-repeat -261px -46px;padding-left: 21px;}
+.nav_list{margin-top:14px;}
+.nav_list li{float: left;margin-right: 20px;}
+.nav_list li a{color: #555;}
+.nav {border-bottom: 3px solid #dfdfdf;height:25px;}
+.nav li{font:16px '微软雅黑';height:25px;}
+.nav li a{padding-bottom: 9px;display: block;}
+.nav .s_tit{font-size:12px;margin-right: 21px;position: relative;top:4px;}
+.nav .s_tit a{background: url(../img/youkbgimg.png) no-repeat -256px -79px;padding-right: 14px;}
+.nav .act a,.nav li:hover a{color: #72dfff;border-bottom:3px solid #06a7e1;}
+.nav_tit li a{display: block;font:14px '微软雅黑';line-height: 36px;}
+.nav_tit .acting a{color: #3399e0;}
+.nav_tit li a:hover{color: #3399e0;}
+/*头部样式结束*/
+
+/*content样式开始*/
+.content{margin-bottom: 30px;}
+/*banner样式*/
+.banner{position: relative;margin-bottom: 20px;}
+.banner .page{position: absolute;bottom:10px;left: 0;text-align: center;width: 100%;}
+.banner .page i{width: 10px;height: 10px;cursor:pointer;background: #fff;border-radius: 50%;margin:0 5px;display: inline-block;}
+.banner  i.act{background: #69aaec;}
+.banner li{display: none;}
+.banner li.act{display: block;}
+.sorts{margin-bottom: 41px;}
+.l_sort{width: 440px;}
+.bey{width: 200px;background: #f5f5f5;position: relative;margin-right: 20px;}
+.bey .s_pic{border:2px solid #fff;position: absolute; top:8px;left: 3px;z-index: 1;}
+.bey h3{color: #555;margin:13px 0 23px 66px;}
+.bey .pic{position: relative;overflow: hidden;}
+.bey .pic p{position: absolute;color: #fff;right: 6px;bottom:4px;font-size: 14px;font-weight: bold;}
+.r_sort{width: 530px;}
+.sort_ h3{background: #f5f5f5;width: 100%;}
+.sort_  span{color: #fff;background: #909090;font-weight: bold;width: 59px;height: 22px;text-align: center;line-height: 22px;display: block;}
+.sort_  ul{margin:9px 0 21px 0;}
+.sort_  ul li{float: left;margin:12px 30px 0 0;}
+.sort_  li a{color: #555;}
+.sort_  li a:hover{color: #c31;}
+.r_sort .last{margin-bottom: 0px;}
+.bey .s_pic,.hot_list li .s_pic,.bey .pic img,.hot_list .img_link img{transition:1s all;-webkit-transition:1s all;-moz-transition:1s all;-ms-transition:1s all;-o-transition:1s all;}
+.bey .s_pic:hover,.hot_list li .s_pic:hover{transform:rotate(360deg);-webkit-transform:rotate(360deg);-moz-transform:rotate(360deg);-ms-transform:rotate(360deg);-o-transform:rotate(360deg);}
+.bey .pic:hover img,.hot_list .img_link:hover img{transform:scale(1.5);-webkit-transform:scale(1.5);-moz-transform:scale(1.5);-ms-transform:scale(1.5);-o-transform:scale(1.5);}
+
+/*新歌首播样式*/
+.newsong{margin-bottom: 30px;}
+.l_n_song{width: 640px;}
+.l_n_song .tit{line-height: 30px;margin-bottom: 20px;}
+h2{font:24px '微软雅黑';color: #909090;line-height: 30px;}
+.l_n_song .tit span{color: #555;line-height: 30px;}
+.song_list{margin-right: -20px;}
+.song_list li{float: left;position: relative;margin:0 20px 20px 0;overflow: hidden;}
+.song_list li a,.pictit a{display: block;}
+.song_list .pictit{position: absolute;left: 0;bottom: 0;padding-left: 5px;background: rgba(0,0,0,0.5);width: 100%;}
+.song_list .pictit .tit{color: #fff;font:14px '微软雅黑';margin-bottom: 6px;}
+.song_list .pictit .num{color: #909090;margin-bottom: 4px;}
+.pictit .num span{background: url(../img/youkbgimg.png) no-repeat 0 -664px;padding-left: 17px;}
+.pictit .num .n{background-position: 0 -703px;}
+.r_n_song{width: 310px;}
+.r_n_song h3{width: 62px;height: 30px;line-height: 30px;text-align: center;color: #fff;background:#06a7e1;}
+.num_list li{margin-top: 20px;}
+.num_list li .img_link{display: block;position: relative;margin-right: 10px;}
+.num_list .img_link i{position: absolute;top:0;left: 0;width: 20px;height: 20px;background: #ef3f22;text-align: center;line-height: 20px;color: #fff;}
+.num_list .img_link .blue{background: #03a7e1;}
+.num_list .song_tit{width: 210px;}
+.num_list .song_tit a{color: #555;}
+.num_list .song_tit a:hover{color:#c21;}
+.r_n_song .more{margin-top: 25px;}
+.r_n_song .more a{color: #555;}
+
+
+/*热播排行样式*/
+.hotsong{margin-bottom: 40px;}
+.l_hot{width: 640px;}
+.l_hot h2{margin-right: 20px;}
+.l_hot .tit li{font: 14px '微软雅黑';float: left;width: 48px;line-height: 30px;text-align: center;color: #555;cursor: pointer;}
+.l_hot .tit .act{color: #fff;background: #06a7e1;}
+.l_hot .tit .more{line-height: 30px;color: #555;}
+.hot_list{margin-right: -20px;}
+.hot_list li{width: 200px;background: #f5f5f5;position: relative;margin:20px 20px 0 0;float: left;}
+.hot_list .s_pic{border:2px solid #fff;position: absolute; top:8px;left: 3px;z-index: 10;}
+.hot_list h3{color: #555;margin:12px 0 26px 66px;}
+.hot_list .img_link{display: block;overflow: hidden;}
+.hot_list .tit{color: #fff;font:14px '微软雅黑';margin-bottom:9px;}
+.hot_list .num{color: #909090;}
+.hot_list .num span{background: url(../img/youkbgimg.png) no-repeat 0 -664px;padding-left: 17px;}
+.hot_list .num .n{background-position: 0 -703px;}
+.hot_list .pic_tit{margin:12px 0 13px 6px;}
+.hot-range>li{display: none;}
+.hot-range>li.act{display: block;}
+.r_hot .pic{margin-top: 20px;display: block;}
+.tag{overflow: hidden;position:relative;height:110px;margin-bottom: 40px;}
+.tagpic{margin-right: -130px;position:absolute;left:0;top:0;}
+.tagpic li{float: left;margin-right: 20px;}
+.tagpic li a{display: block;}
+.tag i{position: absolute;top:0;width:45px;height: 100%;background-color:rgba(0,0,0,0.5);}
+.tag i.right{background: url(../img/slide_next_btn.png) no-repeat center center rgba(0,0,0,0.5);right: 0;box-shadow: -8px 0 4px rgba(0,0,0,0.5)}
+.tag i.left{background: url(../img/left-btn.png) no-repeat center center rgba(0,0,0,0.5);left:0;display: none;box-shadow: 8px 0 4px rgba(0,0,0,0.5)}
+/*音乐牛人样式*/
+.music{margin-bottom: 40px;}
+.l_music .tit .more{line-height: 30px;color: #555;}
+.music_list {margin-right: -20px;margin-top: 20px;}
+.music_list li{float: left;margin-right: 20px; position: relative;}
+.music_list li a{display: block;}
+.music_list .s_pic{border:2px solid #fff;border-bottom:none;position: absolute; top:95px;left: 3px;}
+.music_list .tit_pic{background:#f5f5f5;padding:4px 0 8px 5px;}
+.music_list h3{color: #909090;margin:0px 0 8px 39px;}
+.music_list .tit{color: #555;font:14px '微软雅黑';margin-bottom:11px;}
+.music_list .num{color: #909090;}
+.music_list .num span{background: url(../img/youkbgimg.png) no-repeat 0 -664px;padding-left: 17px;}
+.music_list .num .n{background-position: 0 -703px;}
+.r_music li a{line-height: 20px;}
+.r_music .num_list{margin-top: 20px;}
+.r_music .num_list li{margin-bottom: 12px;margin-top: 0;}
+.r_music .num_list i{width: 20px;height: 20px;background: #ef3f22;text-align: center;line-height: 20px;color: #fff;margin-right: 10px;}
+.r_music .song_tit{width: 280px;}
+.r_music .more a{color: #555;}
+
+/*热门演出样式*/
+.l_show{width: 640px;}
+.show_list{margin:20px -20px 0 0;}
+.l_show li{float: left;margin-right: 20px;}
+.l_show li>a{display: block;position: relative;}
+.l_show .play{width: 40px;height: 40px;background:url(../img/play-btn.png) no-repeat;position: absolute;top:0;right: 0;bottom:0;left:0;margin:auto;display: none;}
+.show_list{margin-bottom: 20px;margin-right: -20px;}
+.show_list .tit_pic{background:#f5f5f5;padding:12px 7px 10px 5px;}
+.show_list .tit{color: #555;font:14px '微软雅黑';margin-bottom:11px;}
+.show_list .num{color: #909090;}
+.show_list .num span{background: url(../img/youkbgimg.png) no-repeat 0 -664px;padding-left: 17px;}
+.show_list .num .n{background-position: 0 -703px;}
+.s_list{width: 310px;margin-top:20px;}
+.s_list li{margin-bottom: 10px;}
+.s_list .img_link{display: block;position: relative;margin-right: 10px;}
+.s_list .img_link p{position: absolute;right: 0;bottom: 0;padding: 2px 4px;color: #ddd;background: #000;}
+.s_list .tit_pic{width: 210px;padding-top: 5px;}
+.s_list .tit{font:14px '微软雅黑';margin-bottom:6px;}
+.s_list .tit a{color: #555;}
+.s_list .num{color: #909090;}
+.s_list .num span{background: url(../img/youkbgimg.png) no-repeat 0 -664px;padding-left: 17px;}
+.s_list .num .n{background-position: 0 -703px;}
+
+/*content样式结束*/
+
+/*尾部样式*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
